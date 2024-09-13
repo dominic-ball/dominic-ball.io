@@ -1,4 +1,4 @@
-### Hi there 👋, My name is Dominic Ball
+### Hello, My name is Dominic Ball
 #### I am a second-year software engineering student at Miami University (OH).
 
 
