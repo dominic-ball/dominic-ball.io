@@ -127,13 +127,11 @@ class gameRunner:
 
     # Method to deal initial cards
     def deal_initial_cards(self):
-        # Initial UI
         print()
-    
+
         # Handles for insufficient funds
         while True:
             try:
-                # Ensure bet amount is a float
                 self.bet_amount = float(input("Enter Bet Amount: "))
                 if self.bet_amount > self.player_balance:
                     print("Not Enough remaining in balance. Try Again!")
@@ -144,50 +142,52 @@ class gameRunner:
                     break
             except ValueError:
                 print("Invalid input. Please enter a valid bet amount.")
-        
+
         print("\nDealing cards...")
         time.sleep(1)
 
-        # Deal initial card to player
+        # Deal initial cards to player
         for i in range(2):
             drawn_card = self.deck.draw_card()
             self.player_hand.add_card(drawn_card)
-            print()
+            print(f"\nYou draw: {drawn_card}")
             time.sleep(1)
-            print(f"You draw: {drawn_card}")
 
-            if self.player_hand.calculate_hand() == 21:
-                print()
-                print("Natural Blackjack, 3-2 odds") 
-                val = self.bet_amount * 1.5
-                self.player_balance += round(val, 2)
-                return True
+        # Check for Natural Blackjack (Ace + 10-value card) for the player
+        if self.player_hand.calculate_hand() == 21 and len(self.player_hand.hand) == 2:
+            print("\nNatural Blackjack! You win with 3-2 odds.")
+            self.player_balance += self.bet_amount + (self.bet_amount * 1.5)
+            return True  # Player wins instantly, skip to next round
 
-        # Deal initial cards to dealer
+        # Deal initial card to dealer
         drawn_card = self.deck.draw_card()
         self.dealer_hand.add_card(drawn_card)
-        time.sleep(1)
         print(f"\nDealer draws: {drawn_card}")
+        time.sleep(1)
 
-        # Draw second card for dealer but keep it face down
+        # Dealer's second card is face down
         drawn_card = self.deck.draw_card()
         self.dealer_hand.add_card(drawn_card)
         print("Dealer's second card is face down.")
-        print()
         time.sleep(1)
         print("Dealer is taking a peek...")
         time.sleep(2)
 
-        # Check if dealer has Blackjack
+        # Check if dealer has a Blackjack
         dealer_total = self.dealer_hand.calculate_hand()
-        if dealer_total == 21:
-            self.dealer_showing_all_cards = True  # Reveal dealer's cards if dealer has Blackjack
-            self.show_hands()  # Show all dealer's cards
-            print("Dealer has Blackjack. You lose.")
-            self.player_balance -= self.bet_amount
-            return True  # End the round if dealer has Blackjack
+        if dealer_total == 21 and len(self.dealer_hand.hand) == 2:
+            self.dealer_showing_all_cards = True  # Show dealer's cards if Blackjack
+            self.show_hands()
+            print("Dealer has Blackjack!")
+            if self.player_hand.calculate_hand() == 21:
+                print("It's a push (both have Blackjack).")
+                self.player_balance += self.bet_amount  # Return the bet
+            else:
+             print("Dealer wins with Blackjack.")
+            return True  # End the round
         else:
-            return False  # Continue if dealer doesn't have Blackjack
+            return False  # Continue the game if no natural Blackjack for dealer
+
 
     def show_hands(self):
         print()
@@ -263,7 +263,6 @@ class gameRunner:
         dealer_total = self.dealer_hand.calculate_hand()
         print(f"Dealer's hand total: {dealer_total}")
 
-        #dealer adding cards to deck until bust or greater than a value of 17
         dealer_turn = True
         while dealer_turn:
             while dealer_total < 17:
@@ -280,20 +279,19 @@ class gameRunner:
                 print()
                 print("Dealer Busts! You win!")
                 self.player_balance += self.bet_amount * 2
-                dealer_turn = False
+                return  # Return immediately to avoid further checks
 
             elif dealer_total == 21:
                 print()
                 print("Dealer has Blackjack, you lose.")
-                dealer_turn = False
+                return  # Return immediately to avoid further checks
 
-            else:
-                dealer_turn = False
-        
-        #results of the hand of blackjack
+            dealer_turn = False
+    
+        # Only compare hands if the dealer hasn't busted
         if dealer_total < self.player_hand.calculate_hand():
             print("You Win!")
-            self.player_balance += self.bet_amount
+            self.player_balance += 2* self.bet_amount
         elif dealer_total == self.player_hand.calculate_hand():
             print("It's a push.")
             self.player_balance += self.bet_amount
