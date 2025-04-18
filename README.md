@@ -3,36 +3,23 @@
 
 ---
 
-**Skills**
+**Skills**  
+- **Proficient**: Python, Java  
+- **Intermediate**: MySQL, C++  
+- **Frameworks**: Pygame, Spring Boot  
+- **Other Skills**: HTML, Agile / Scrum Methodologies  
 
-_Proficient_  
-• Python  
-• Java  
-
-_Intermediate_   
-• MySQL  
-• C++  
-
-_Frameworks_ 
-• Pygame
-• Spring Boot
-
-_Other Skills_
-• HTML
-• Agile / Scrum Methodologies
-
-
-------------------------------------------------------------------------------------------------------------------------------------------
-
-Below are some notable projects as well as ways to reach me.
+---
 
 **Projects**  
 - [BlackJack in Python](https://github.com/dominic-ball/dominic-ball.io/blob/main/pythonBlackjack.py)  
 - [Ascend (Gamified Social Media Site, made in a group of 5 for CSE 201, Currently Ongoing)](https://github.com/dominic-ball/CSE201Project#:~:text=Settings-,CSE201Project,-Public)
 
+---
+
 **Contact Info**  
 - Email: dominicjeromeball@gmail.com  
 - Cell: (513)667-6155  
 
-[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg' alt='github' height='40'>](https://github.com/dominic-ball)  
-[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg' alt='linkedin' height='40'>](https://www.linkedin.com/in/dominic-j-ball/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dominic-ball)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dominic-j-ball/)
