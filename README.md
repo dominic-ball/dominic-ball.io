@@ -9,14 +9,18 @@ _Proficient_
 • Python  
 • Java  
 
-_Intermediate_  
-• Spring Boot  
+_Intermediate_   
 • MySQL  
 • C++  
 
-_Other_  
-• HTML  
-• MS Office Suite  
+_Frameworks_ 
+• Pygame
+• Spring Boot
+
+_Other Skills_
+• HTML
+• Agile / Scrum Methodologies
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
