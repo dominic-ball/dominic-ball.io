@@ -11,6 +11,7 @@ Below are some notable projects as well as ways to reach me.
 
 **Projects**
   - [BlackJack in Python](https://github.com/dominic-ball/dominic-ball.io/blob/main/pythonBlackjack.py)
+  - [Ascend (Gamified Social Media Site, made in a group of 5 for CSE 201, Currenlty Ongoing) ](https://github.com/dominic-ball/CSE201Project#:~:text=Settings-,CSE201Project,-Public)
     
 **Contact Info**
   - Email: dominicjeromeball@gmail.com
